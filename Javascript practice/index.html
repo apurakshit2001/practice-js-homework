@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript practice</title>
+    <!-- <script src="script.js" defer></script> -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function abc() {
+            let body = document.getElementById("body");
+            let phNum = document.getElementById("phNum").value;
+            let search = document.getElementById("search").value;
+            let fullName = document.getElementById("fullName").value;
+
+            let btn = document.getElementById("btn");
+            let txt = document.getElementById("text");
+
+            let index = fullName.indexOf(search) + 1;
+
+
+
+
+
+            if (phNum === "" || phNum === "0") {
+                txt.innerHTML = index + " " + "please input ph num";
+                txt.style.padding = "15px"
+            }
+            else {
+                txt.innerHTML = index + " " + "good job";
+                txt.style.padding = "15px"
+            }
+
+
+
+
+            if (search === "") {
+                btn.style.color = "red";
+            } else {
+                btn.style.color = "blue";
+            }
+
+
+            if (phNum === "" || phNum === "0" && search === "") {
+                body.style.background = "red";
+            }
+
+            else {
+
+                body.style.background = "green";
+            }
+
+
+
+        }
+    </script>
+
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: aqua;
+        }
+
+        #phNum {
+            width: 6rem;
+        }
+
+        #text {
+            background: wheat;
+            border: 1px solid black;
+            box-shadow: 5px 10px;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+
+<body id="body">
+
+
+    <label for="name">Full Name👇</label>
+    <input type="text" name="name" id="fullName">
+
+    <br> <br>
+
+    <label for="search">Search box</label>
+    <input type="text" name="" id="search">
+
+    <br><br>
+
+    <label for="phone">Phone Number👇</label>
+    <input type="number" name="number" id="phNum" min="100" maxlength="10">
+    <br>
+    <button type="button" onclick="abc()" id="btn">Submit</button>
+    <br>
+
+    <div id="text">
+        <p> Here will show the possition.</p>
+    </div>
+</body>
+
+</html>
