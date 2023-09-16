@@ -4,9 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript practice</title>
-    </head>
+    <title>JavaScript Practice</title>
+
+    <style>
+        #phNum {
+            width: 6rem;
+        }
+
+        #text {
+            background: wheat;
+            border: 1px solid black;
+            box-shadow: 5px 10px;
+            padding: 15px;
+
+        }
+
+
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+            background: aqua;
+            margin: 30px;
+        }
+
+        #textArea {
+            position: absolute;
+            top: 190px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: red;
+        }
+
+        #text-color {
+            position: absolute;
+            top: 350px;
+            left: 200px;
+        }
+
+        #background-color {
+            position: absolute;
+            top: 350px;
+            right: 200px;
+        }
+
+        #reset {
+            position: absolute;
+            top: 350px;
+        }
+
+
+
+
+        /* CSS ref from url(https://getcssscan.com/css-buttons-examples)*/
+        .button-71 {
+            background-color: #0078d0;
+            border: 0;
+            border-radius: 56px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            outline: 0;
+            padding: 16px 21px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: all .3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-71:before {
+            background-color: initial;
+            background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+            border-radius: 125px;
+            content: "";
+            height: 50%;
+            left: 4%;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            transition: all .3s;
+            width: 92%;
+        }
+
+        .button-71:hover {
+            box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            .button-71 {
+                padding: 16px 48px;
+            }
+        }
+    </style>
+
     <script>
+        function changeTextColor() {
+            let text = document.getElementById("textArea");
+            text.style.color = "blue";
+        }
+
+        function changeBackgroundColor() {
+            let body = document.getElementById("body");
+            body.style.backgroundColor = "yellow";
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
 
         function abc() {
             let body = document.getElementById("body");
@@ -20,20 +136,13 @@
             let index = fullName.indexOf(search) + 1;
 
 
-
-
-
             if (phNum === "" || phNum === "0") {
                 txt.innerHTML = index + " " + "please input ph num";
                 txt.style.padding = "15px"
-            }
-            else {
+            } else {
                 txt.innerHTML = index + " " + "good job";
                 txt.style.padding = "15px"
             }
-
-
-
 
             if (search === "") {
                 btn.style.color = "red";
@@ -41,68 +150,40 @@
                 btn.style.color = "blue";
             }
 
-
             if (phNum === "" || phNum === "0" && search === "") {
                 body.style.background = "red";
-            }
-
-            else {
-
+            } else {
                 body.style.background = "green";
             }
-
-
-
         }
     </script>
-
-
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            background: aqua;
-        }
-
-        #phNum {
-            width: 6rem;
-        }
-
-        #text {
-            background: wheat;
-            border: 1px solid black;
-            box-shadow: 5px 10px;
-            padding: 15px;
-
-        }
-    </style>
 </head>
 
 <body id="body">
-
-
-    <label for="name">Full Name👇</label>
+    <label for="name">Full Name👉</label>
     <input type="text" name="name" id="fullName">
 
-    <br> <br>
-
-    <label for="search">Search box</label>
+    <label for="search">Search box👉</label>
     <input type="text" name="" id="search">
 
-    <br><br>
-
-    <label for="phone">Phone Number👇</label>
+    <label for="phone">Phone Number👉</label>
     <input type="number" name="number" id="phNum" min="100" maxlength="10">
-    <br>
-    <button type="button" onclick="abc()" id="btn">Submit</button>
-    <br>
+
+    <button type="button" onclick="abc()" id="btn" class="button-71">Submit</button>
 
     <div id="text">
         <p> Here will show the possition.</p>
     </div>
+
+    <div id="textArea">
+        <h1>If you press any button , depending on which you have pressed a small effect will take place here.</h1>
+    </div>
+
+    <button class="button-71" type="button" id="text-color" onclick="changeTextColor()">Click</button>
+
+    <button class="button-71" type="button" id="background-color" onclick="changeBackgroundColor()">Click</button>
+
+    <button class="button-71" type="button" id="reset" onclick="refreshPage()">Refresh</button>
 </body>
 
 </html>
